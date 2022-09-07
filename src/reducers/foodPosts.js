@@ -6,8 +6,8 @@ export default (foodPosts = [], action) => {
         //return foodPosts.filter((foodPost) => (foodPost.shop_id !== action.payload));  
         case 'CREATE':
             return [...foodPosts, action.payload];
-        // case 'UPDATE':
-        //     return foodPosts.map((foodPost) => (foodPost._id === action.payload._id ? action.payload : foodPost));
+        case 'UPDATE':
+             return foodPosts.map((foodPost) => (foodPost._id === action.payload._id ? action.payload : foodPost));
         case 'DELETE':
             return foodPosts.filter((foodPost) => (foodPost._id !== action.payload));
         default:

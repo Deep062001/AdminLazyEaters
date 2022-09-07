@@ -1,12 +1,12 @@
-import axios from 'axios';
+import axios from "axios";
 
 // for foods
-const url = 'http://localhost:5000/foodItems';
+const url = "http://localhost:5000/foodItems";
 export const fetchPosts = () => axios.get(url);
 // export const fetchPostsbyShopID = (shopID) => axios.get(`${url}/${shopID}/foodItems`);
 export const createPost = (newFoodPost) => axios.post(url, newFoodPost);
 export const deletePost = (id) => axios.delete(`${url}/${id}`);
-
+export const editPost = (id,post) => axios.patch(`${url}/${id}`, post);
 
 // // for shops
 // const urlShops = 'http://localhost:5000/shops';

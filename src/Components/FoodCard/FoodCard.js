@@ -10,6 +10,18 @@ const FoodCard = (props) => {
         e.preventDefault();
         dispatch(deleteFoodPost(props.id));
     }
+
+    function handleUpdate(){
+        const obj ={ 
+            id: props.id,
+            name: props.name,
+            price: props.price,
+            tags: props.tags,
+            image: props.image,
+         };
+        console.log(obj);
+        props.updateValues(obj);
+    }
     return (
         <div className="food-card">
             <img src={props.image} />
@@ -18,6 +30,7 @@ const FoodCard = (props) => {
                 <p>Price: {props.price}</p>
                 <p>Tags: {props.tags[0]}</p>
                 <button onClick={handleDelete} >delete</button>
+                <button onClick={handleUpdate} >update</button>
             </div>
 
         </div>

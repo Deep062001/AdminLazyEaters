@@ -1,19 +1,41 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import FileBase from 'react-file-base64';
-import { createFoodPost } from '../../actions/foodPost';
+import { createFoodPost, updateFoodPost } from '../../actions/foodPost';
 import { useDispatch } from 'react-redux';
 import './FoodForm.scss';
 
 
 const foodObj = { name: '', price: '', tags: '', image: '' };
-const FoodForm = () => {
-    const [foodData, setFoodData] = useState({ ...foodObj });
+const FoodForm = (props) => {
+    console.log("render form");
+    const [foodData, setFoodData] = useState({ 
+        name: props.values.name?props.values.name:"",
+        price: props.values.price,
+        tags: props.values.tags.length>0?props.values.tags[0]:"",
+        image: props.values.image,
+     });
+
+     useEffect(()=>{
+        setFoodData({ 
+            name: props.values.name?props.values.name:"",
+            price: props.values.price,
+            tags: props.values.tags.length>0?props.values.tags[0]:"",
+            image: props.values.image,
+         })
+     },[props.values]);
+    console.log(foodData);
     const dispatch = useDispatch();
 
     function handleSubmit(e) {
+        console.log(props.values);
         e.preventDefault();
-        dispatch(createFoodPost(foodData));
-        clearForm();
+        if(props.values.id){
+        dispatch(updateFoodPost(props.values.id,foodData))
+        }
+        else {
+            dispatch(createFoodPost(foodData));
+        }
+        props.clearValues();
     }
 
     function handleChange(e) {

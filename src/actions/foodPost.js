@@ -38,3 +38,13 @@ export const deleteFoodPost = (id) => async (dispatch) => {
         console.log(error.message);
     }
 }
+
+export const updateFoodPost = (id,post) => async (dispatch) => {
+    try {
+        await api.editPost(id,post);
+        dispatch({ type: 'UPDATE', payload: id })
+
+    } catch (error) {
+        console.log(error.message);
+    }
+}
