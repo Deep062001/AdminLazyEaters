@@ -59,18 +59,18 @@ const FoodForm = (props) => {
             <form onSubmit={handleSubmit} autoComplete={"off"}>
                 <div className='input-div'>
                     <label>Dish Name:</label>
-                    <input type="text" name="name" onChange={handleChange} value={foodData.name} />
+                    <input type="text" name="name" onChange={handleChange} value={foodData.name} required/>
                 </div>
                 <div className='input-div'>
                     <label>Price:</label>
-                    <input type="number" name="price" onChange={handleChange} value={foodData.price} />
+                    <input type="number" name="price" onChange={handleChange} value={foodData.price} required/>
                 </div>
                 <div className='input-div'>
                     <label>Tags:</label>
-                    <input type="text" name="tags" onChange={handleChange} value={foodData.tags} />
+                    <input type="text" name="tags" onChange={handleChange} value={foodData.tags} required/>
                 </div>
                 <div>
-                    <FileBase type="file" multiple={false} onDone={({ base64 }) => setFoodData({ ...foodData, image: base64 })} />
+                    <FileBase type="file" multiple={false} onDone={({ base64 }) => setFoodData({ ...foodData, image: base64 })} required/>
                 </div>
                 <div className='btn-div'>
                     {/* <button onClick={clearForm}>Clear</button> */}

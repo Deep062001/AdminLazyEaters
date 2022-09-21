@@ -15,6 +15,8 @@ const Food = () => {
     image: "",
   });
 
+  const [loading, setLoading] = useState(false);
+
   const dispatch = useDispatch();
   function updateValues(obj) {
     setFormValues(obj);
@@ -25,14 +27,23 @@ const Food = () => {
   };
   useEffect(() => {
     //dispatch(getFoodPost());
-    dispatch(getFoodPost());
+    setLoading(true);
+    dispatch(getFoodPost()).then(()=>{
+      console.log();
+    }).catch((error)=>{
+      console.log(error);
+    }).finally(()=>{
+      console.log("Hello");
+      setLoading(false);
+    });
   }, [dispatch]);
   return (
     <div className="food">
       <div className="form">
         <FoodForm values={formValues} clearValues={clearValues} />
       </div>
-      <FoodDiv updateValues={updateValues} />
+      {loading? "Loading..." :  <FoodDiv updateValues={updateValues} />}
+     
     </div>
   );
 };
