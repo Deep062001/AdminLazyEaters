@@ -39,6 +39,7 @@ const Food = () => {
   }, [dispatch]);
   return (
     <div className="food">
+      <h1 align="center">Admin Portal</h1>
       <div className="form">
         <FoodForm values={formValues} clearValues={clearValues} />
       </div>

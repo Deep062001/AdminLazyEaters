@@ -1,10 +1,10 @@
 .food-card {
-  height: 200px;
   width: 200px;
-  border: 2px solid blue;
+  border: 2px solid orange;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
+  padding: 10px;
 
   img {
     height: 100px;
@@ -24,5 +24,12 @@
 
   button {
     cursor: pointer;
+    background-color: orange;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    height: 25px;
+    margin-top: 5px;
+    margin-right: 20px
   }
 }
