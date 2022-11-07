@@ -7,6 +7,7 @@
 ## Main Screen
 <img width="953" alt="image" src="https://user-images.githubusercontent.com/69765597/200329459-81b5efbb-ca4a-4387-a373-fadb14aeb62e.png">
 
+<img width="932" alt="image" src="https://user-images.githubusercontent.com/69765597/200329805-5768655e-0d03-490e-9193-f73dc107907d.png">
 
 ### features
 * Add food
